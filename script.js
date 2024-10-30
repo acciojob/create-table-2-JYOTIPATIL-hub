@@ -1,22 +1,20 @@
-
 function createTable() {
-    // Get the user input for the number of rows and columns
-    const rn = parseInt(prompt("Input number of rows:"));
-    const cn = parseInt(prompt("Input number of columns:"));
+    // Prompt user for number of rows and columns
+    const rows = parseInt(prompt("Input number of rows"));
+    const columns = parseInt(prompt("Input number of columns"));
 
     // Get the table element by its ID
     const table = document.getElementById("myTable");
 
-    // Create the table rows and cells
-    for (let i = 0; i < rn; i++) {
-        const row = table.insertRow(i);
-        for (let j = 0; j < cn; j++) {
-            const cell = row.insertCell(j);
-            cell.textContent = `Row-${i} Column-${j}`;
+    // Clear any existing rows in the table
+    table.innerHTML = '';
+
+    // Loop to create rows and columns
+    for (let i = 0; i < rows; i++) {
+        const row = table.insertRow(); // Create a new row
+        for (let j = 0; j < columns; j++) {
+            const cell = row.insertCell(); // Create a new cell in the row
+            cell.textContent = `Row-${i} Column-${j}`; // Set cell content
         }
     }
 }
-
-// Attach the createTable function to the button click event
-const createButton = document.getElementById("createButton");
-createButton.addEventListener("click", createTable);
